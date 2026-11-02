@@ -5,8 +5,9 @@ Add `Transfer` (table `transfers`) and `IdempotencyRecord` (table `idempotency_r
 below, then write migrations/versions/0002_*.py so that `alembic upgrade head` creates
 exactly what these models describe.
 """
-from sqlalchemy import CheckConstraint, Integer, String
+from sqlalchemy import String, Integer, ForeignKey, CheckConstraint, UniqueConstraint
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from typing import Optional
 
 
 class Base(DeclarativeBase):
